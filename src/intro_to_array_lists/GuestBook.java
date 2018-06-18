@@ -24,6 +24,7 @@ public class GuestBook implements ActionListener {
 	public void stuff() {
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		JPanel panel = new JPanel();
 		
 		
@@ -51,12 +52,16 @@ public class GuestBook implements ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getSource()==button1) {
 			String answer= JOptionPane.showInputDialog("Enter your name here");
+			names.add(answer);
 		}
 		else if(e.getSource()==button2) {
+			String view = " ";
 			
+		for(int i=0; i<names.size(); i++) {
+			view+="\n"+ names.get(i);
+		}
+			JOptionPane.showMessageDialog(null, view);
 			
-			
-			names.add(answer);
 		}
 	}
 }
